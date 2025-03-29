@@ -64,14 +64,34 @@ body {
 }
 
 .white-bar {
-    background-color: #FFFFFB;
-    z-index: 20;
-    /* Add these to ensure proper positioning */
+    /* Initial State (before animation) */
     position: absolute;
     top: 0;
     left: 50%;
     width: 50%;
     height: 100vh;
+    background: #FFFFFB;
+    z-index: 100;
+    opacity: 1;
+    transform-origin: left center;
+    box-sizing: border-box;
+    
+    /* Animation Prep */
+    will-change: transform, width, height;
+  }
+  
+  /* Final State (after animation) */
+  .white-bar.final-state {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    will-change: auto;
+  }
+  
+  /* Smooth out the animation steps */
+  .gsap-marker-start, .gsap-marker-end {
+    display: none !important;
   }
 
 /* ======= SECTIONS ======= */
