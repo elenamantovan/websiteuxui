@@ -1,54 +1,25 @@
-console.log("GSAP version:", gsap.version); 
-
-function animateLeftSection() {
-    const leftContent = document.getElementById("uxui-content");
-    leftContent.classList.add("animated-text");
-    leftContent.innerHTML = `
-        <h1>ELENA M.</h1>
-        <h2>UX/UI Designer</h2>
-        <div class="scroll-prompt">SCROLL</div>
-    `;
+document.addEventListener('DOMContentLoaded', () => {
+    // First, hide the wedding section completely
+    gsap.set("#wedding-section", { display: "none" });
     
-    gsap.fromTo("#uxui-content",
-        { y: 50, opacity: 0 },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 2.5,
-            delay: 1,
-            ease: "expo.out"
-        }
-    );
-}
-
-function animatePage() {
-    console.log("Starting animation...");
+    // Then proceed with animation
+    const tl = gsap.timeline();
     
-    // Initialize white panel (matches index.html's right side)
-    gsap.set("#white-bar", {
-        height: "100%",
-        width: "50%",
-        left: "50%",
-        backgroundColor: "#FFFFFB"
-    });
-
-    // Collapse animation - ONLY targeting #white-bar that exists
-    gsap.to("#white-bar", {
+    tl
+      .to(".white-bar", {
         height: "80px",
-        duration: 1.5,
-        ease: "power3.inOut",
-        onComplete: () => console.log("Vertical collapse complete!")
-        // We'll add expandWhiteBar later
-    });
-}
-
-function expandWhiteBar() {
-    gsap.to("#wedding-section", {
-        width: "100%",  // Expands to full width
-        left: 0,        // Aligns to left edge
-        duration: 1,
+        duration: 0.8,
         ease: "power2.out"
-    });
-}
-
-document.addEventListener('DOMContentLoaded', animatePage);
+      })
+      .to(".white-bar", {
+        width: "100%",
+        left: "0",
+        duration: 0.5,
+        ease: "power2.inOut"
+      }, "-=0.3")
+      .to("#uxui-content", {
+        opacity: 1,
+        y: 150,
+        duration: 0.6
+      }, "-=0.2");
+  });
