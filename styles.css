@@ -1,0 +1,296 @@
+/* ======= GLOBAL STYLES (both pages) ======= */
+:root {
+    --uxui-bg: #141414;
+    --wedding-bg: #FFFFFB;
+    --text-light: #FFFFFB;
+    --text-dark: #141414;
+}
+
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url('./fonts/Neue-Regrade-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Light (non-italic) */
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url('./fonts/Neue-Regrade-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Regular */
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url('./fonts/Neue-Regrade-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SemiBold */
+@font-face {
+    font-family: 'Neue Regrade';
+    src: url('./fonts/Neue-Regrade-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Neue Regrade', sans-serif;
+    overflow-x: hidden;
+    background-color: #141414 !important; /* Your homepage black */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sections */
+.section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* UX/UI section */
+.uxui {
+    background-color: var(--uxui-bg);
+    color: var(--text-light);
+    justify-content: flex-start;
+}
+
+.uxui-content {
+    text-align: left;
+    padding: 0 0 0 2.5vw;
+    margin-left: 2.5vw;
+}
+
+/* Make name/title clickable like ENTER */
+.name-title-link {
+    text-decoration: none;
+    color: inherit; /* Keeps your existing text color */
+    display: block; /* Makes the entire area clickable */
+    margin-bottom: 1rem; /* Maintains spacing */
+}
+
+.uxui h1 {
+    font-size: 8vw;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.uxui h2 {
+    font-size: 3vw;
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+}
+
+.enter-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 400;
+    display: inline-block;
+    transition: opacity 0.3s;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+}
+
+.enter-link:hover {
+    opacity: 0.7;
+}
+
+/* Wedding section */
+.wedding {
+    background-color: var(--wedding-bg);
+    color: var(--text-dark);
+}
+
+.wedding-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.wedding-text {
+    font-family: 'Neue Regrade', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 300; /* Explicitly using Light */
+    font-style: normal; /* Crucial - prevents faux italics */
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    letter-spacing: 1.5px;
+}
+
+.click-here {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.click-here:hover {
+    color: #555;
+}
+
+.logo_wedding {
+    width: 20vw;
+    max-width: 200px;
+    height: auto;
+}
+
+.main-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #141414;
+    overflow: hidden;
+}
+
+.white-bar {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Starts from center */
+    width: 50%; /* Initial width (half screen) */
+    height: 0;
+    background-color: #FFFFFB;
+    z-index: 10;
+}
+
+.content-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 20; /* Above white bar */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .section {
+        width: 100%;
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    /* Center UX/UI content on mobile */
+    .uxui {
+        justify-content: center;
+    }
+    
+    .uxui-content {
+        text-align: center;
+        padding: 0 5vw;
+        margin: 0;
+    }
+    
+    .uxui h1 {
+        font-size: 15vw;
+    }
+    
+    .uxui h2 {
+        font-size: 6vw;
+    }
+    
+    .enter-link {
+        font-size: 5vw;
+    }
+    
+    .wedding-text {
+        font-size: 6vw;
+    }
+    
+    .logo_wedding {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        min-height: 350px;
+    }
+    
+    .uxui h1 {
+        font-size: 18vw;
+    }
+    
+    .uxui h2 {
+        font-size: 7vw;
+    }
+    
+    .wedding-text {
+        font-size: 7vw;
+    }
+}
+
+  
+  
+  #wedding-section {
+    background-color: #FFFFFB;
+  }
+  
+  #uxui-content.animated-text {
+    position: absolute;
+    bottom: 150px;     
+    left: 2.5vw;
+    transform: none;     
+    opacity: 0;
+    width: 100%;
+}
+  
+  #uxui-content.animated-text h1 {
+    font-weight: 400;
+    font-size: 6vw;
+  }
+  
+  #uxui-content.animated-text h2 {
+    font-weight: 300;
+    font-size: 2vw;
+  }
+  
+  .scroll-prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;  /* Space between text and icon */
+}
+
+.scroll-prompt::after {
+    content: "";
+    display: inline-block;
+    width: 24px;        /* Set your icon size */
+    height: 24px;
+    background-image: url('images/Arrow.png'); 
+    background-size: contain;
+    animation: bounce 2s infinite;
+}
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
