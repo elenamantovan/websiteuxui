@@ -139,6 +139,8 @@ body {
 .wedding-content {
     text-align: center;
     padding: 2rem;
+    will-change: transform, opacity; /* Optimize animation */
+    transform-origin: center; /* For consistent scale-down */
 }
 
 .wedding-text {
